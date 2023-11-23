@@ -1,0 +1,56 @@
+{
+	"choice": {
+		"searchPlaceholderValue": "সার্চ...",
+		"loadingText": "লোড হচ্ছে...",
+		"noResultsText": "পাওয়া যায় নি",
+		"noChoicesText": "No choices to choose from",
+		"itemSelectText": "",
+		"uniqueItemText": "Only unique values can be added",
+		"customAddItemText": "Only values matching specific conditions can be added",
+		"addItemText": "Press Enter to add",
+		"only": "Only",
+		"maxItemText": "values can be added"
+	},
+	"action": {
+		"bulk": "বাল্ক অ্যাকশন",
+		"apply": "এপ্লাই",
+		"filter": "ফিল্টার",
+		"next": "পরবর্তী",
+		"prev": "পূর্বে",
+		"previous": "পূর্বে",
+		"search": "খুঁজুন",
+		"category": "ক্যাটাগরি",
+		"delete": "মুছুন",
+		"reset": "রিসেট",
+		"trash": "আবর্জনা",
+		"edit": "এডিট",
+		"view": "দেখুন",
+		"submit": "সাবমিট"
+	},
+	"status": {
+		"title": "স্ট্যটাস",
+		"select": "স্ট্যাটাস সিলেক্ট করুন",
+		"published": "পাবলিশড",
+		"draft": "ড্রাফট",
+		"scheduled": "শিডিউলড"
+	},
+	"visibility": {
+		"title": "দৃশ্যমান",
+		"public": "পাবলিক",
+		"private": "প্রাইভেট",
+		"protected": "সুরক্ষিত",
+		"password-protected": "পাসওয়ার্ড সুরক্ষা"
+	},
+	"address": {
+		"title": {
+			"division": "বিভাগ",
+			"district": "জেলা",
+			"upzilla": "উপজেলা/থানা",
+			"union": "ইউনিয়ন",
+			"ward": "ওয়ার্ড"
+		}
+	},
+	"post": {
+		"select-category": "ক্যাটাগরি নির্বাচন করুন"
+	}
+}

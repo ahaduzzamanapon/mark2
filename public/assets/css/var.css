@@ -1,0 +1,43 @@
+:root {
+	--primary-bg: #eeeff6;
+	--secondary-bg: #f5f7ff;
+	--primary-color: #2cd071;
+	--primary-color-hover: #17b358;
+	--click-shadow: #2cd07142;
+	--primary-btn-shadow: 0 0 0 3px var(
+	--click-shadow);
+	--secondary-btn-shadow: 0 0 0 3px #ffffff75;
+	--secondary-color: #727589;
+	--label-color: #606374;
+	--placeholder-color: #60637480;
+	--text-color: #333;
+	--text-color-alt: #666;
+	--border-color: #e1e2eb;
+	--secondary-border-color: #e6ecff;
+	--border-options: #c4c6d4;
+	--bar-border: #eff0f8;
+	--bar-secondary-border: #fff;
+	--table: #c0f1d5;
+	--th-bg: #dfecfd;
+	--td-bg: #f7f9ff;
+	--table-border: #dfecfd;
+	--table-border-radius: 5px;
+	--alert: #ff0953;
+	--info: #0974ff;
+	--alert-hover: #ff0915;
+	--info-hover: #1750eb;
+	--bnp-green: #02a04f;
+	--bnp-red: #e82125;
+	--alert-btn-shadow: 0 0 0 3px #ff095342;
+	--info-btn-shadow: 0 0 0 3px #0974ff42;
+	--primary-font: "Nunito", "Baloo Da 2", sans-serif;
+	--fontawesome:
+	"Font Awesome 6 Pro";
+	--fontawesome-brands:
+	"Font Awesome 6 Brands";
+	--expand-sidebar: 250px;
+	--admin-bar-width: 60px;
+	--admin-content-padding: 40px;
+	--obj-on-white: #ebf2ff;
+	--modal-bg: #b9b9b9c4;
+}

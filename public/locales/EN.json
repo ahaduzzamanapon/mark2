@@ -1,0 +1,152 @@
+{
+	"or": "Or",
+	"number": {
+		"postfix": ""
+	},
+	"date-time": {
+		"date": {
+			"title": "Date"
+		},
+		"title": "Date and Time",
+		"at": "at"
+	},
+	"file": {
+		"drop": "Drop your files here",
+		"browse": "Browse",
+		"tb": "TB",
+		"gb": "GB",
+		"mb": "MB",
+		"kb": "KB",
+		"byte": "byte",
+		"byte_": "bytes",
+		"bit": "bit",
+		"bit_": "bits",
+		"upload-thumbnail": "Upload thumbnail"
+	},
+	"input": {
+		"password": "Password"
+	},
+	"choice": {
+		"searchPlaceholderValue": "Search...",
+		"loadingText": "Loading...",
+		"noResultsText": "No results found",
+		"noChoicesText": "No choices to choose from",
+		"itemSelectText": "",
+		"uniqueItemText": "Only unique values can be added",
+		"customAddItemText": "Only values matching specific conditions can be added",
+		"addItemText": "Press Enter to add",
+		"only": "Only",
+		"maxItemText": "values can be added"
+	},
+	"sort": {
+		"title": "Sort by",
+		"label": "Labels",
+		"date": {
+			"asc": "Date ASC",
+			"dsc": "Date DSC"
+		},
+		"name": {
+			"asc": "Name ASC",
+			"dsc": "Name DSC"
+		}
+	},
+	"action": {
+		"bulk": "Bulk Action",
+		"apply": "Apply",
+		"filter": "Filter",
+		"next": "Next",
+		"prev": "Prev",
+		"previous": "Previous",
+		"search": "Search",
+		"category": "Category",
+		"delete": "Delete",
+		"reset": "Reset",
+		"trash": "Trash",
+		"edit": "Edit",
+		"view": "View",
+		"submit": "Submit"
+	}, 
+	"status": {
+		"title": "Status",
+		"select": "Select Status",
+		"published": "Published",
+		"draft": "Draft",
+		"scheduled": "Scheduled"
+	},
+	"visibility": {
+		"title": "Visiblity",
+		"public": "Public",
+		"private": "Private",
+		"protected": "Protected",
+		"password-protected": "Password Protected"
+	},
+	"dashboard": {
+		"title": "Dashboard"
+	},
+	"media": {
+		"title": "Media Library",
+		"files-count": "Media Files",
+		"label": "Label",
+		"favourites": "Favourites",
+		"new": "Add new",
+		"select": "Select",
+		"select-all": "all",
+		"filter": "Filter Media Library",
+		"used": "Media Used",
+		"all": "All Media",
+		"time-uploaded": "Time Uploaded",
+		"all-time": "All Time",
+		"selector": {
+			"default": "Default",
+			"reset": "Reset"
+		}
+	},
+	"slide": {
+		"title": "Slides",
+		"new": "Add new",
+		"update": "Update",
+		"preview": "Preview",
+		"list-title": "Title",
+		"content": {
+			"title": "Content",
+			"bg-image": "Background image",
+			"logo": "Logo",
+			"overlay-bg": "Overlay Background",
+			"title-color": "Title Color",
+			"desc-color": "Description Color"
+		}
+	},
+	"page": {
+		"title": "Pages",
+		"new": "New Page",
+		"add": "Add new",
+		"search": "Search Page...",
+		"table": {
+			"name": "Name"
+		}
+	},
+	"post": {
+		"title": "Posts",
+		"new": "New Post",
+		"add": "Add new",
+		"search": "Search Post...",
+		"category": "Category",
+		"select-category": "Select Category",
+		"table": {
+			"name": "Name"
+		}
+	},
+
+
+
+
+	"address": {
+		"title": {
+			"division": "Division",
+			"district": "Distict",
+			"upzilla": "Upzilla",
+			"union": "Union",
+			"ward": "Ward"
+		}
+	}
+}

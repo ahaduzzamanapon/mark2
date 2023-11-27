@@ -1,0 +1,301 @@
+
+<!-- BLOCKS -->
+
+<!-- Popup wrap -->
+<div class="admin-popup" aria-name="popup">
+    <div class="admin-popup-wrap invisible">
+        <div class="popup-content"></div>
+    </div>
+</div>
+
+<!-- Media Selector -->
+<div class="media-selector" aria-name="media-selector">
+    <div class="row">
+        <div class="col col-left add-media">
+            <label for="upload-media" class="drag_and_drop_box">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span>Drop your files here. <br> or <span>Browse</span></span>
+                <input type="file" id="upload-media"/>
+            </label>
+            <div class="upload-status">
+                <ul>
+                </ul>
+            </div>
+        </div>
+        <div class="col col-right add-media">
+            <ul class="medias">
+                <li data-id="0001" aria-checked="false"><img class="source-file" src="../assets/images/profile-picture.jpg" alt=""></li>
+                <li data-id="0002" aria-checked="false"><img class="source-file" src="../assets/images/placeholder.png" alt=""></li>
+                <li data-id="0003" aria-checked="false"><span file-ext="pdf" class="source-file" data-source="../assets/content/invoice.pdf"></span></li>
+            </ul>
+            <div class="media-selector-footer" aria-name="media-selector-footer">
+                <div class="left" aria-name="API">
+                    <div class="external-source-view"><span class="content-placeholder"></span></div>
+                    <div class="field">
+                        <input type="url" id="media-selector-url" placeholder="https://">
+                        <button class="btn" name="clear-media-selector-url"></button>
+                    </div>
+                    <div class="loading" aria-name="api-request-status"></div>
+                </div>
+                <div class="right">
+                    <button class="btn normal" name="close-popup"><i class="fa-solid fa-xmark"></i> Cancel</button>
+                    <button class="btn" id="insert-selected-media" disabled><i class="fa-solid fa-paperclip"></i> Insert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Committee Member -->
+<ul class="committee-members">
+    <li class="committee-member" aria-name="committee-member">
+        <span class="count-sl"></span>
+        <span class="remove"><i class="fa-solid fa-xmark"></i></span>
+        <div class="member-picture" aria-name="media-selector-referrence">
+            <div class="member-picture-wrap media-selector-referrence-wrap">
+                <div class="source-file source-image"><span class="content-placeholder"></span></div>
+            </div>
+        </div>
+        <div class="fields-wrap">
+            <div class="fields base">
+                <div class="field"><select one name="committee-member-name"><option value="">Member Name</option></select></div>
+                <div class="field unlisted-field"><input name="unlisted-member-name-en" type="text" placeholder="Name in English" disabled/></div>
+            </div>
+            <div class="fields">
+                <div class="field"><select one name="committee-member-role"><option value="">Designation</option></select></div>
+                <div class="field"><input name="committee-member-mobile" type="number" placeholder="Mobile Number" disabled/></div>
+                <div class="field"><input name="committee-member-email" type="email" placeholder="Email @" disabled/></div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
+
+
+<!-- Slides table Row -->
+<table aria-name="slide-row">
+    <tbody>
+        <tr>
+            <td>
+                <div class="slide-preview">
+                    <div class="slide-preview-wrap">
+                        <span class="count-sl"></span>
+                        <div class="slide-preview-logo"></div>
+                        <div class="slide-preview-content"></div>
+                    </div>
+                </div>
+                <div class="row-actions">
+                    <button name="delete" class="btn alert-filled delete"><i class="fa-duotone fa-trash"></i> Delete</button>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="slide-content">
+                    <div aria-name="media-selector-referrence">                        
+                        <div class="media-selector-referrence-wrap">
+                            <div class="source-file"><input type="url" name="content-placeholder" class="content-placeholder background" placeholder="https://" disabled></input></div>
+                        </div>
+                        <input type="hidden" name="media-id" value="">
+                        <div class="buttons inline">
+                            <button class="btn normal" name="reset-media-selector-default" media-id="0001" file-ext="jpg" source-value="../assets/images/placeholder.png"><i class="fa-duotone fa-history"></i> <span data-i18n="media.selector.default"></span></button>
+                            <button class="btn upload-member-picture" name="media-selector" allowed-files="jpg jpeg png"><i class="fa-duotone fa-upload"></i> <span data-i18n="slide.content.bg-image"></span></button>
+                            <button class="btn alert" name="reset-media-selector"><i class="fa-duotone fa-clock-rotate-left"></i> <span data-i18n="media.selector.reset"></span></button>
+                        </div>
+                    </div>
+                    <div aria-name="media-selector-referrence">                        
+                        <div class="media-selector-referrence-wrap">
+                            <div class="source-file"><input type="url" name="content-placeholder" class="content-placeholder logo" placeholder="https://" disabled></input></div>
+                        </div>
+                        <input type="hidden" name="media-id" value="">
+                        <div class="buttons inline">
+                            <button class="btn normal" name="reset-media-selector-default"><i class="fa-duotone fa-history"></i> <span data-i18n="media.selector.default"></span></button>
+                            <button class="btn upload-member-picture" name="media-selector" allowed-files="jpg jpeg png"><i class="fa-duotone fa-upload"></i> <span data-i18n="slide.content.logo"></span></button>
+                            <button class="btn alert" name="reset-media-selector"><i class="fa-duotone fa-clock-rotate-left"></i> <span data-i18n="media.selector.reset"></span></button>
+                        </div>
+                    </div>
+                    <div class="slide-content-input">
+                        <div class="fields inline jscolor-fields">
+                            <div class="field jscolor-field">
+                                <label for="overlay-bg">Overlay Background</label>
+                                <div class="inline-jscolor">
+                                    <input name="overlay-bg-left" id="overlay-bg" value="#00000080"/>
+                                    <input name="overlay-bg-right" id="overlay-bg" value="#00000000"/>
+                                </div>
+                            </div>
+                            <div class="field jscolor-field">
+                                <label for="title-color">Title Color</label>
+                                <input name="title-color" id="title=color" value="#ffffff" data-jscolor="{onChange: 'updateSlideColor(this)', onInput: 'updateSlideColor(this)'}"/>
+                            </div>
+                            <div class="field jscolor-field">
+                                <label for="description-color">Description Color</label>
+                                <input name="description-color" id="description=color" value="#ffffff"/>
+                            </div>
+                        </div>
+                        <div aria-name="tab" class="language-tabs">
+                            <ul aria-name="tabs" tab-name="language" class="horizontal-tabs">
+                                <li data-tab="bn" class="active"><span></span></li>
+                                <li data-tab="en"><span></span></li>
+                            </ul>
+                            <div aria-name="tabs-container" tab-name="language">
+                                <div class="tab-data-container active" data-tab="bn">
+                                    <div class="fields inline">
+                                        <div class="field"><input type="text" lang="bn" name="slide-title" placeholder="টাইটেল"/></div>
+                                        <div class="field"><input type="text" lang="bn" name="slide-description" placeholder="ছোট বিস্তারিত"/></div>
+                                    </div>
+                                </div>
+                                <div class="tab-data-container" data-tab="en">
+                                    <div class="fields inline">
+                                        <div class="field"><input type="text" lang="en" name="slide-title" placeholder="Title"/></div>
+                                        <div class="field"><input type="text" lang="en" name="slide-description" placeholder="Short description"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field mgt-5"><input type="url" name="slide-url" placeholder="https://"/></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- DB Data - table Row -->
+<table aria-name="dbdata-row">
+    <tbody>
+        <tr>
+            <td><input type="checkbox" name="select-individual-data"></td>
+            <td>
+                <div class="field"><input type="text" name="query-value" placeholder="query-value" disabled required /></div>
+            </td>
+            <td>
+                <div class="fields inline">
+                    <div class="field"><input type="text" name="data-en" placeholder="English" required/></div>
+                    <div class="field"><input type="text" name="data-bn" placeholder="বাংলা"/></div>
+                </div>
+            </td>
+            <td>
+                <button class="delete btn only-icon" name="delete"><i class="fa-solid fa-trash"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- DB Data - User access -->
+<table aria-name="dbdata-user-access">
+    <tbody>
+        <tr>
+            <td>
+                <div class="fields inline">
+                    <div class="field"><input type="text" name="data-val" placeholder="role-value"/></div>
+                    <div class="field"><input type="text" name="data-name" placeholder="Role name"/></div>
+                </div>
+                <div class="user-access-list">
+                    <span class="user-access-item"><input type="checkbox" name="dashboard[]"/> Dashboard</span>
+                    <span class="user-access-item"><input type="checkbox" name="media[]"/> Media</span>
+                    <span class="user-access-item"><input type="checkbox" name="slides[]"/> Slides</span>
+                    <span class="user-access-item"><input type="checkbox" name="page[]"/> Pages</span>
+                    <span class="user-access-item"><input type="checkbox" name="posts[]"/> Posts & Categories</span>
+                    <span class="user-access-item"><input type="checkbox" name="notices[]"/> Notices</span>
+                    <span class="user-access-item"><input type="checkbox" name="events[]"/> Events</span>
+                    <span class="user-access-item"><input type="checkbox" name="members[]"/> Members</span>
+                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Members</span>
+                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Committees</span>
+                    <span class="user-access-item"><input type="checkbox" name="appearances[]"/> Appearances</span>
+                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Frequent Data</span>
+                    <span class="user-access-item"><input type="checkbox" name="settings[]"/> Settings</span>
+                    <span class="user-access-item"><input type="checkbox" name="vistor[]"/> Webpage visitor</span>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<!-- Send Notification -->
+<div aria-name="send-notification">
+    <div class="send-notification-wrap">
+        <div class="row">
+            <div class="col col-left">
+                <div class="notification-methods">
+                    <label for="sms-notification">
+                        <input type="checkbox" id="sms-notification" />
+                        <i class="fa-duotone fa-message-sms"></i> SMS
+                    </label>
+                    <label for="email-notification">
+                        <input type="checkbox" id="email-notification" />
+                        <i class="fa-duotone fa-envelope"></i> Email
+                    </label>
+                </div>
+                <div class="batch-status">
+                    <ul class="batch-status-list" aria-name="sms-log-report">
+                        <li class="success"><span class="title">Mirza Fakhrul... : </span> Successfully sent</li>
+                        <li class="gateway-problem"><span class="title">Mirza Fakhrul... : </span> Gateway Problem</li>
+                        <li class="error"><span class="title">Mirza Fakhrul... : </span> Sms not sent</li>
+                    </ul>
+                    <ul class="batch-status-list" aria-name="email-log-report">
+                        <li class="success"><span class="title">Mirza Fakhrul... : </span> Successfully sent</li>
+                        <li class="gateway-problem"><span class="title">Mirza Fakhrul... : </span> Gateway Problem</li>
+                        <li class="error"><span class="title">Mirza Fakhrul... : </span> Email not sent</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col col-right">
+                <div class="notification-area-main">
+                    <div class="message-block">
+                        <div class="fields">
+                            <div class="field">
+                                <textarea class="sms-content">Message</textarea>
+                            </div>
+                        </div>
+                        <div class="email-template">
+                            <table style="max-width: 750px; width: 100%; border-spacing: 0; background-color: #fff; vertical-align: middle; margin: 0 auto; border: 3px solid #2CD071; border-radius: 0px;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" style="padding: 20px; text-align: center;">
+                                            <img src="../assets/images/logo.png" alt="Logo" style="display: inline-block; width: 80px">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
+                                            <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="https://bnpbd.org">www.bnpbd.org</a>
+                                        </th>
+                                        <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
+                                            <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="mailto:mail@bnpbd.org">mail@bnpbd.org</a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" style="padding: 20px;">
+                                            <p style="color: #202020; font-size: 1.05em; font-weight: 500; text-align: justify;">
+                                                <strong style="font-size: 1.15em;">Repair Code: #467</strong> <br>
+                                                LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. PELLENTESQUE VITAE INTERDUM LIGULA. PELLENTESQUE FEUGIAT LIGULA LIGULA, IN INTERDUM DOLOR ALIQUET ET. ALIQUAM VITAE SEM EGET ERAT VIVERRA MALESUADA. ALIQUAM VOLUTPAT VEL EST QUIS EUISMOD. NUNC FAUCIBUS VARIUS EX EGET ALIQUAM.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                <tfoot>
+                                    <tr>
+                                        <td style="padding: 10px; text-align: center; background-color: #EEEFF6;" colspan="2">
+                                            <a style="text-decoration: none; color: inherit; color: #676767; font-size: 15px; font-weight: 500;" href="#">Sent from BNP Web Portal</a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="admin-popup-footer">
+        <div class="right">
+            <button class="btn normal" name="close-popup"><i class="fa-solid fa-xmark"></i> Cancel</button>
+            <button class="btn filled" id="send-notification-final"><i class="fa-solid fa-paper-plane"></i> Send</button>
+        </div>
+    </div>
+</div>

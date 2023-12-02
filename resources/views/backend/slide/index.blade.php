@@ -22,8 +22,12 @@
                     <th class="slide-content-col" data-i18n="slide.content.title"></th>
                 </tr>
             </thead>
+            <form action="{{url('slide/update')}}" method="post" id="update-slides-form" enctype="multipart/form-data">
+                @csrf
             <tbody>
+                
             </tbody>
+            </form>
         </table>
     </div>
 </div>

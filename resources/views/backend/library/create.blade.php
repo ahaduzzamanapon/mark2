@@ -17,7 +17,7 @@
                 <label for="upload-media" class="drag_and_drop_box">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
                     <span><span data-i18n="file.drop">Drop your files here.</span> <br> <span data-i18n="or"></span> <span data-i18n="file.browse"></span></span>
-                    <input type="file" id="upload-media" multiple onchange="uploadMediaFiles(this)"/>
+                    <input type="file" id="upload-media" multiple onchange="uploadMediaFiles(this)" accept="image/*" />
                 </label>
             </div>
             <div class="col col-right">
@@ -32,18 +32,18 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         const axiosInstances = [];
-
+        const fileUploaded =[];
+        var i=0;
         function uploadMediaFiles(input) {
             const fileList = input.files;
             const fileUploadUrl = "{{ url('/upload') }}";
             const progressBarContainer = $('#file-list');
 
-            // Clear existing list items
-            progressBarContainer.html('');
+            // progressBarContainer.html('');
 
             Array.from(fileList).forEach((file, index) => {
+                i++;
                 const listItem = $('<li></li>');
-
                 const fileTypeIcon = $('<span class="file-type"></span>');
                 fileTypeIcon.append('<i class="fa-solid fa-file-' + getFileExtensionIcon(file.type) + '"></i>');
 
@@ -52,16 +52,16 @@
                 const fileAction = $('<div class="file-info-action"></div>');
                 fileAction.append('<div class="file-info"><span class="file-name">' + file.name + '</span><span class="file-size">' + (file.size / (1024 * 1024)).toFixed(2) + ' MB</span></div>');
 
-                const deleteButton = $('<span class="file-action delete file-' + index + '" data-index="' + index + '"><i class="fa-regular"></i></span>');
+                const deleteButton = $('<span class="file-action delete file-' + i + '" data-i="' + i + '"><i class="fa-regular"></i></span>');
                 deleteButton.click(function() {
-                    cancelFileUpload(index);
+                    cancelFileUpload(i);
                 });
 
                 fileAction.append(deleteButton);
                 fileActionContainer.append(fileAction);
 
                 const fileProgressContainer = $('<div class="file-progress"></div>');
-                const progressBar = $('<progress id="file-' + index + '" value="0" max="100"></progress>');
+                const progressBar = $('<progress id="file-' + i + '" value="0" max="100"></progress>');
                 fileProgressContainer.append(progressBar);
 
                 fileActionContainer.append(fileProgressContainer);
@@ -70,7 +70,7 @@
                 progressBarContainer.append(listItem);
 
                 // Start the file upload
-                uploadFile(file, index, fileUploadUrl);
+                uploadFile(file, i, fileUploadUrl);
             });
         }
 
@@ -84,19 +84,19 @@
             return fileTypeMap[fileType] || 'file';
         }
 
-        function uploadFile(file, index, url) {
+        function uploadFile(file, i, url) {
             const formData = new FormData();
             formData.append('files[]', file);
 
             const cancelTokenSource = axios.CancelToken.source();
-            axiosInstances[index] = { index: index, cancelTokenSource: cancelTokenSource };
+            axiosInstances[i] = { i: i, cancelTokenSource: cancelTokenSource };
 
             axios.post(url, formData, {
                 onUploadProgress: function (progressEvent) {
                     // console.log('hi'+progressEvent.lengthComputable);
                     if (progressEvent) {
                         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                        updateProgressBar(index, percentCompleted);
+                        updateProgressBar(i, percentCompleted);
                     }
                 },
                 cancelToken: cancelTokenSource.token // Provide the cancel token
@@ -105,23 +105,26 @@
                 console.log(response.data);
             })
             .catch(function(error) {
-                console.error('Error uploading file ' + index + ': ', error);
+                console.error('Error uploading file ' + i + ': ', error);
             });
         }
 
-        function updateProgressBar(index, percent) {
+        function updateProgressBar(i, percent) {
             if (percent === 100) {
-                // $('.file-' + index).remove();          
+                fileUploaded[i] = true;
+                $('.file-' + i).html('<p style="color: #00f908;">File uploaded</p>');          
               }
-            $('#file-' + index).val(percent);
+            $('#file-' + i).val(percent);
         }
 
-        function cancelFileUpload(index) {
-            const axiosInstance = axiosInstances.find(instance => instance.index === index);
-
+        function cancelFileUpload(i) {
+            if (fileUploaded[i]) {
+                return;
+            }
+            const axiosInstance = axiosInstances.find(instance => instance.i === i);
             if (axiosInstance) {
                 axiosInstance.cancelTokenSource.cancel('File upload canceled by user');
-                updateProgressBar(index, 0);
+                $('.file-' + i).html('File upload canceled');          
             }
         }
     </script>

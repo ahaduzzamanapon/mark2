@@ -17,11 +17,9 @@ use App\Http\Controllers\MediaController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/upload', [MediaController::class, 'upload']);
 
-Route::get('/media', function () {
-    return view('backend.library.index');
-});
+Route::post('/upload', [MediaController::class, 'upload']);
+Route::get('/media', [MediaController::class, 'media']);
 
 Route::get('/media-add-new', function () {
     return view('backend.library.create');

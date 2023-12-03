@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
-            $table->string('fie_type');
+            $table->string('file_type');
             $table->string('file_size');
             $table->string('is_favorite');
             $table->timestamps();

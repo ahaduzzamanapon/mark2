@@ -25,36 +25,9 @@
         <div class="row">
             <div class="col col-left">
                 <ul class="medias">
-                    <li data-id="0001" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0002" aria-checked="false"><img src="{{ asset('') }}assets/images/placeholder.png" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
-                    <li data-id="0000" aria-checked="false"><img src="{{ asset('') }}assets/images/profile-picture.jpg" alt=""></li>
+                    @foreach ($libraries as $key => $library)
+                      <li  title="{{$library->name}}" data-id="{{$library->id }}"  data-url="{{$library->url }}"  aria-checked="false"><img src="https://img.icons8.com/color/96/{{$library->file_type}}.png" alt=""></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col col-right media-filter">
@@ -90,5 +63,10 @@
             </div>
         </div>
     </div>
-
+<script>
+    function selectMedia(element){
+        var url = element.getAttribute('data-url');
+        var id = element.getAttribute('data-id');
+    }
+</script>
 @endsection

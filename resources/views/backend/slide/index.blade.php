@@ -14,6 +14,7 @@
 </div>
 <div class="content-main slides">
     <div class="data-content">
+        <form action="{{url('/test')}}" method="get" class="data-form" enctype="multipart/form-data">
         <table class="data-table" data-single="slide" data-basecol="2">
             <thead>
                 <tr>
@@ -23,8 +24,11 @@
                 </tr>
             </thead>
             <tbody>
+                
             </tbody>
         </table>
+        <button type="submit" class="btn primary filled"><i class="fa-solid fa-rotate right"></i> <span data-i18n="slide.update"></span></button>
+    </form>
     </div>
 </div>
 

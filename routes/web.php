@@ -35,6 +35,9 @@ Route::get('/pages', function () {
 Route::get('/add_page', function () {
     return view('backend.page.create');
 });
+Route::get('/test', function () {
+    dd($_GET);
+});
 Route::get('/posts', function () {
     return view('backend.post.index');
 });

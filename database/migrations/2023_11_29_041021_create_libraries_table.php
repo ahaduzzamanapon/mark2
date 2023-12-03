@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('url');
+            $table->string('fie_type');
+            $table->string('file_size');
+            $table->string('is_favorite');
             $table->timestamps();
         });
     }

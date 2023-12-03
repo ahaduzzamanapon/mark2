@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('background_image')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('title_en');
+            $table->string('title_bn');
+            $table->text('description_en');
+            $table->text('description_bn');
+            $table->text('url');
+            $table->string('overlay_background');
+            $table->string('title_color');
+            $table->string('description_color');
             $table->timestamps();
         });
     }

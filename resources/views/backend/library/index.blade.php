@@ -18,7 +18,7 @@
                 <button class="btn grid active" id="media-grid"><i class="fa-solid fa-grid-horizontal"></i></button>
                 <button class="btn list" id="media-list"><i class="fa-solid fa-list-ul"></i></button>
             </div>
-            <a class="btn add-new-media" href="media-add-new.php"><i class="fa-solid fa-plus"></i> <span data-i18n="media.new"></span></a>
+            <a class="btn add-new-media" href="{{url('media-add-new')}}"><i class="fa-solid fa-plus"></i> <span data-i18n="media.new"></span></a>
         </div>
     </div>
     <div class="content-main media">

@@ -27,11 +27,21 @@
                       </div>
                       <div class="user">
                           <input type="checkbox" id="user"/>
-                          <label for="user">F. Last Name</label>
+                          <label for="user">{{ Auth::user()->name }}</label>
                           <ul class="user-panel dropdown">
-                              <li class="profile"><a href="profile.php"><i class="fa-duotone fa-user"></i> Moj profil</a></li>
-                              <li class="edit-profile"><a href="edit-profile.php"><i class="fa-duotone fa-user-pen"></i> Uredi profil</a></li>
-                              <li class="logout"><a href="logout.php"><i class="fa-duotone fa-arrow-right-from-bracket"></i> Odjava</a></li>
+                              <li class="logout">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <x-dropdown-link :href="route('logout')"
+        
+                                            onclick="event.preventDefault();
+        
+                                                        this.closest('form').submit();">
+        
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                              </li>
                           </ul>
                       </div>
                   </li>

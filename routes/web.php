@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RollManagement;
+use App\Http\Controllers\FrequentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () 
+{return view('dashboard');
+})
+->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
@@ -78,9 +81,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/add_new_committee', function () {
         return view('backend.committee.create');
     });
-    Route::get('/frequent', function () {
-        return view('backend.frequent.frequent');
-    });
+
+    Route::get('/frequent', [FrequentController::class, 'frequent']);
+    Route::get('/Add_role_permission', [RollManagement::class, 'Add_role_permission']);
+    Route::post('/frequent-update', [RollManagement::class, 'role_permission_update'])->name('frequent.update');
+    Route::get('frequent/delete/{id}', [RollManagement::class, 'delete']);
+
+
+
+
+    // Route::get('/frequent', function () {
+    //     return view('backend.frequent.frequent');
+    // });
     Route::get('/settings', function () {
         return view('backend.settings.settings');
     });

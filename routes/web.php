@@ -24,6 +24,9 @@ Route::get('/media', [MediaController::class, 'media']);
 Route::get('/media-add-new', function () {
     return view('backend.library.create');
 });
+Route::get('/media_edit', function () {
+    return view('backend.library.newIndex');
+});
 
 Route::get('/slider', function () {
     return view('backend.slide.index');

@@ -23,7 +23,7 @@
                 <li data-tab="wing-types"><i class="fa-duotone fa-sitemap"></i> Wing Types</li>
             </ul>
         </div>
-    
+
         <div class="col col-right">
             <div aria-name="tabs-container" tab-name="main">
                 <div class="tab-data-container active" data-tab="user-access-role">
@@ -119,13 +119,16 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- address section --}}
+
                 <div class="tab-data-container" data-tab="addresses">
                     <div class="tab-data-wrap" aria-name="data-wrapper">
                         <div class="tab-container-heading">
                             <h2></h2>
                             <div class="buttons inline">
                                 <button class="btn" name="add-dbdata"><i class="fas fa-plus"></i> Add Data</button>
-                                <button class="btn primary filled" id="update-addresses"> <i class="fa-solid fa-rotate right"></i> Update</button>
+                                <button id="" class="btn primary filled" id="update-addresses"> <i class="fa-solid fa-rotate right"></i> Update adress</button>
                             </div>
                             <div class="fields inline">
                                 <div class="field"><select one id="division"><option value="">বিভাগ</option></select></div>
@@ -163,10 +166,13 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <button class="btn info fill-hover" name="load-more-data">Load More</button>
+
+                            <button class="btn info fill-hover" name="load-more-data">Load More </button>
                         </div>
                     </div>
                 </div>
+
+                {{-- address section end --}}
                 <div class="tab-data-container" data-tab="committee-types">
                     <div class="tab-data-wrap" aria-name="data-wrapper">
                         <div class="tab-container-heading">
@@ -251,7 +257,7 @@
         </div>
     </div>
 </div>
-<script>        
+<script>
     document.querySelectorAll('table.data-table').forEach(table => {
         tableDragger(table, {
             mode: "row",

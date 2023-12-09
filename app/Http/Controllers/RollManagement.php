@@ -9,103 +9,72 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-
 class RollManagement extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    public function index()
+
+    public function Add_role_permission()
     {
-        if(!Auth::user()->can('add_role')){
-            return redirect()->route('index');
+        $role = Role::whereIn('name', ['Super Admin'])->first();
+
+        if (!$role) {
+            $role = Role::create(['name' => 'Super Admin']);
         }
-        $roles = Role::latest()->with('permissions')->get();
-        return view('backend.role&permission.roleandpermission', compact('roles'));
-    }
-    
-    public function update_user_role_permission(Request $request)
-    {
-        if(!Auth::user()->can('add_role')){
-            return redirect()->route('index');
+
+        $permissions = ['Dashboard', 'Media', 'Slides', 'Pages', 'Posts & Categories', 'Notices', 'Events', 'Members', 'Committees', 'Appearances', 'Frequent Data', 'Settings', 'Webpage visitor'];
+
+        foreach ($permissions as $permissionName) {
+            $existingPermission = Permission::where('name', $permissionName)->where('guard_name', 'web')->first();
+
+            if (!$existingPermission) {
+                Permission::create(['name' => $permissionName, 'guard_name' => 'web']);
+            }
         }
-        $role_id = $request->role_id;
-        $role_name=$request->role_name;
-        $role = Role::where('id', $role_id)->first();
-        $role->name = $role_name;
-        $role->save();
-        $role->revokePermissionTo(Permission::all());
-        if ($request->has('permission') &&  count($request['permission']) > 0) {
-            $permissions = Permission::whereIn('name', $request['permission'])->get();
-            $role->syncPermissions($permissions);
-            $permissions->each(function ($permission) use ($role) {
-                $permission->assignRole($role);
-            });
+
+        $role->syncPermissions(Permission::where('guard_name', 'web')->whereIn('name', $permissions)->get());
+
+        $role2 = Role::whereIn('name', [' Webpage visitor'])->first();
+        
+        if (!$role2) {
+            $role2 = Role::create(['name' => 'Webpage visitor']);
         }
-        Session::flash('success', __('messages.Roles') . ' ' . __('messages.update') . ' ' . __('messages.successfully'));
-        return redirect('/role_permission');
-    }
-    public function getallp()
-    {
-        $permissions = Permission::select('name')->get();
-        return response()->json($permissions);
-    }
-    public function add_user_role_permission(Request $request)
-    {
-        $role = Role::create(['name' => $request->role_name]);
-        if ($request->has('permission') &&  count($request['permission']) > 0) {
-            $permissions = Permission::whereIn('name', $request['permission'])->get();
-            $role->syncPermissions($permissions);
-            $permissions->each(function ($permission) use ($role) {
-                $permission->assignRole($role);
-            });
+        $existingPermission2 = Permission::where('name', 'Webpage visitor')->where('guard_name', 'web')->first();
+        if (!$existingPermission2) {
+            Permission::create(['name' => 'Webpage visitor', 'guard_name' => 'web']);
         }
-        Session::flash('success', __('messages.Roles') . ' ' . __('messages.create') . ' ' . __('messages.successfully'));
-        return redirect('/role_permission');
-    }
-    public function update_roll(Request $request)
-    {
-        // file_upload_update
-        // file_sharing_update
-        // reminder_own_update
-        // reminder_with_user_update
-        // rename_update
-        // comment_update
-        // download_update
-        // add_role_update
-        // view_user_list_update
-        // manage_pending_list_update
-        $role = Role::create(['name' => $request->role_name]);
-        $permissions = Permission::whereIn('name', $request['permission'])->get();
-        $role->syncPermissions($permissions);
-        $permissions->each(function ($permission) use ($role) {
-            $permission->assignRole($role);
-        });
+        $role2->syncPermissions(Permission::where('guard_name', 'web')->whereIn('name', ['Webpage visitor'])->get());
         echo 'success';
     }
-    public function update_role_get($id){
-        $roles = Role::where('id', $id)->with('permissions')->first();
-        return response()->json($roles);
+
+    public function role_permission_update(Request $request)
+    {
+        $serializedData = json_decode($request->input('serializedData'), true);
+        foreach ($serializedData as $key => $value) {
+
+            $role = Role::whereIn('name', [$key])->first();
+        
+            if (!$role) {
+                $role = Role::create(['name' => $key]);
+            }
+            $per=[];
+           foreach ($value as $permission) {
+               if($permission['isChecked']==true){
+                   $per[] = $permission['checkboxValue'];
+               }
+            }
+            $role->syncPermissions($per);
+        }
+        Session::flash('success', 'Role Permission Updated');
     }
     public function delete($id){
-        $roles = Role::where('id', $id)->first();
-        $roles->delete();
-        Session::flash('success', __('messages.Roles') . ' ' . __('messages.delete') . ' ' . __('messages.successfully'));
-        return redirect('/role_permission');
-    }
-    public function add_permission(){
-        $roles = Permission::create(['name' => 'file_upload']);
-        $roles = Permission::create(['name' => 'file_sharing']);
-        $roles = Permission::create(['name' => 'reminder_own']);
-        $roles = Permission::create(['name' => 'reminder_with_user']);
-        $roles = Permission::create(['name' => 'rename']);
-        $roles = Permission::create(['name' => 'comment']);
-        $roles = Permission::create(['name' => 'view']);
-        $roles = Permission::create(['name' => 'download']);
-        $roles = Permission::create(['name' => 'add_role']);
-        $roles = Permission::create(['name' => 'view_user_list']);
-        $roles = Permission::create(['name' => 'manage_pending_list']);
-        $roles = Permission::create(['name' => 'view_user_list']);
+        $role = Role::find($id);
+        $role->delete();
+        Session::flash('success', 'Role Deleted');
+
+        return redirect()->back();
     }
 }
+

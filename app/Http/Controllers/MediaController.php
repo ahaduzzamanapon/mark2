@@ -19,7 +19,7 @@ class MediaController extends Controller
                 $file_size= $file->getSize();
                 $fileName = time() . '_' . $index . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('uploads'), $fileName);
-              
+
                 Library::create([
                     'name' => pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME),
                     'url' => 'uploads/' . $fileName,
@@ -36,6 +36,7 @@ class MediaController extends Controller
     }
     public function media(){
         $libraries = Library::all();
+
         return view('backend.library.index' , compact('libraries'));
     }
 }

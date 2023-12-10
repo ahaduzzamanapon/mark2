@@ -96,7 +96,7 @@
                 <div class="slide-content">
                     <div aria-name="media-selector-referrence">
                         <div class="media-selector-referrence-wrap">
-                            <div class="source-file"><input type="url" name="content-placeholder" class="content-placeholder background" placeholder="https://" disabled></input></div>
+                            <div class="source-file"><input type="url" name="content-placeholder" class="content-placeholder background" placeholder="https://oisjfosgjsogosgs" disabled></input></div>
                         </div>
                         <input type="hidden" name="media-id" value="">
                         <div class="buttons inline">
@@ -142,14 +142,14 @@
                             <div aria-name="tabs-container" tab-name="language">
                                 <div class="tab-data-container active" data-tab="bn">
                                     <div class="fields inline">
-                                        <div class="field"><input type="text" lang="bn" name="slide-title" placeholder="টাইটেল"/></div>
-                                        <div class="field"><input type="text" lang="bn" name="slide-description" placeholder="ছোট বিস্তারিত"/></div>
+                                        <div class="field"><input type="text" lang="bn" name="slide-title_bn" placeholder="টাইটেল"/></div>
+                                        <div class="field"><input type="text" lang="bn" name="slide-description_bn" placeholder="ছোট বিস্তারিত"/></div>
                                     </div>
                                 </div>
                                 <div class="tab-data-container" data-tab="en">
                                     <div class="fields inline">
-                                        <div class="field"><input type="text" lang="en" name="slide-title" placeholder="Title"/></div>
-                                        <div class="field"><input type="text" lang="en" name="slide-description" placeholder="Short description"/></div>
+                                        <div class="field"><input type="text" lang="en" name="slide-title_en" placeholder="Title"/></div>
+                                        <div class="field"><input type="text" lang="en" name="slide-description_en" placeholder="Short description"/></div>
                                     </div>
                                 </div>
                             </div>
@@ -163,34 +163,17 @@
 </table>
 
 <!-- DB Data - table Row -->
-<table aria-name="dbdata-row">
+<table aria-name="dbdata-row"> 
     <tbody>
-        <tr class="common">
-            <td><input type="checkbox" name="select-individual-data"></td>
+        <tr>
+            <td ><input type="checkbox" name="select-individual-data[]"></td>
             <td>
-                <div class="field"><input type="text" name="query-value" placeholder="query-value" disabled required /></div>
+                <div class="field"><input type="text" name="query-value[]" placeholder="query-value" disabled required /></div>
             </td>
             <td>
                 <div class="fields inline">
-                    <div class="field"><input type="text" name="data-en" placeholder="English" required/></div>
-                    <div class="field"><input type="text" name="data-bn" placeholder="বাংলা"/></div>
-                </div>
-            </td>
-            <td>
-                <button class="delete btn only-icon" name="delete"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>
-        <tr class="address">
-            <td><input type="checkbox" name="select-individual-data"></td>
-            <td>
-                <div class="field"><input type="text" name="query-value" placeholder="query-value" disabled required /></div>
-            </td>
-            <td>
-                <div class="fields inline">
-                    <div class="field"><input type="text" name="data-en" placeholder="English" required/></div>
-                    <div class="field"><input type="text" name="data-bn" placeholder="বাংলা"/></div>
-                    <div class="field"><input type="number" name="mobile" placeholder="Mobile"/></div>
-                    <div class="field"><input type="email" name="email" placeholder="@"/></div>
+                    <div class="field"><input type="text" name="data-en[]" placeholder="English" required/></div>
+                    <div class="field"><input type="text" name="data-bn[]" placeholder="বাংলা"/></div>
                 </div>
             </td>
             <td>
@@ -203,27 +186,25 @@
 <!-- DB Data - User access -->
 <table aria-name="dbdata-user-access">
     <tbody>
-        <tr>
-            <td>
+        <tr >
+            <td class="user-access_tr">
                 <div class="fields inline">
-                    <div class="field"><input type="text" name="data-val" placeholder="role-value"/></div>
-                    <div class="field"><input type="text" name="data-name" placeholder="Role name"/></div>
+                    <div class="field"><input type="text" name="role[]" placeholder="value"/></div>
                 </div>
                 <div class="user-access-list">
-                    <span class="user-access-item"><input type="checkbox" name="dashboard[]"/> Dashboard</span>
-                    <span class="user-access-item"><input type="checkbox" name="media[]"/> Media</span>
-                    <span class="user-access-item"><input type="checkbox" name="slides[]"/> Slides</span>
-                    <span class="user-access-item"><input type="checkbox" name="page[]"/> Pages</span>
-                    <span class="user-access-item"><input type="checkbox" name="posts[]"/> Posts & Categories</span>
-                    <span class="user-access-item"><input type="checkbox" name="notices[]"/> Notices</span>
-                    <span class="user-access-item"><input type="checkbox" name="events[]"/> Events</span>
-                    <span class="user-access-item"><input type="checkbox" name="members[]"/> Members</span>
-                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Members</span>
-                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Committees</span>
-                    <span class="user-access-item"><input type="checkbox" name="appearances[]"/> Appearances</span>
-                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Frequent Data</span>
-                    <span class="user-access-item"><input type="checkbox" name="settings[]"/> Settings</span>
-                    <span class="user-access-item"><input type="checkbox" name="vistor[]"/> Webpage visitor</span>
+                    <span class="user-access-item"><input type="checkbox" value=""  name="Dashboard[]"/> Dashboard</span>
+                    <span class="user-access-item"><input type="checkbox" value="Media"  name="Media[]"/> Media</span>
+                    <span class="user-access-item"><input type="checkbox" value="Slides" name="Slides[]"/> Slides</span>
+                    <span class="user-access-item"><input type="checkbox" value="Pages" name="Pages[]"/> Pages</span>
+                    <span class="user-access-item"><input type="checkbox" value="Posts & Categories" name="Posts & Categories[]"/> Posts & Categories</span>
+                    <span class="user-access-item"><input type="checkbox" value="Notices" name="Notices[]"/> Notices</span>
+                    <span class="user-access-item"><input type="checkbox" value="Events" name="Events[]"/> Events</span>
+                    <span class="user-access-item"><input type="checkbox" value="Members" name="Members[]"/> Members</span>
+                    <span class="user-access-item"><input type="checkbox" value="Committees" name="Committees[]"/> Committees</span>
+                    <span class="user-access-item"><input type="checkbox" value="Appearances" name="Appearances[]"/> Appearances</span>
+                    <span class="user-access-item"><input type="checkbox" value="Frequent Data" name="Frequent Data[]"/> Frequent Data</span>
+                    <span class="user-access-item"><input type="checkbox" value="Settings" name="Settings[]"/> Settings</span>
+                    <span class="user-access-item"><input type="checkbox" value="Webpage visitor" name="Webpage visitor[]"/> Webpage visitor</span>
                 </div>
             </td>
         </tr>
@@ -264,49 +245,45 @@
             <div class="col col-right">
                 <div class="notification-area-main">
                     <div class="message-block">
-                        <div class="fields inline">
+                        <div class="fields">
                             <div class="field">
-                                <textarea cols="30" rows="10" class="sms-content" name="sms-content" placeholder="SMS Text"></textarea>
-                            </div>
-                            <div class="field inline sms-template">
-                                <div class="sms-template-wrapper"><p></p></div>
-                                <img src="../assets/images/logo.png" alt="Logo">
+                                <textarea class="sms-content">Message</textarea>
                             </div>
                         </div>
                         <div class="email-template">
-                            <div class="field">
-                                <textarea class="email-content" name="email-content"  placeholder="Email content"></textarea>
-                                <table class="mgt-20" style="max-width: 750px; width: 100%; border-spacing: 0; background-color: #fff; vertical-align: middle; margin: 0 auto; border: 3px solid #2CD071; border-radius: 0px;">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2" style="padding: 20px; text-align: center;">
-                                                <img src="../assets/images/logo.png" alt="Logo" style="display: inline-block; width: 80px">
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
-                                                <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="https://bnpbd.org">www.bnpbd.org</a>
-                                            </th>
-                                            <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
-                                                <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="mailto:mail@bnpbd.org">mail@bnpbd.org</a>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="2" style="padding: 20px; text-align: left;;">
-
-                                            </td>
-                                        </tr>
-                                    <tfoot>
-                                        <tr>
-                                            <td style="padding: 10px; text-align: center; background-color: #EEEFF6;" colspan="2">
-                                                <a style="text-decoration: none; color: inherit; color: #676767; font-size: 15px; font-weight: 500;" href="#">Sent from BNP Web Portal</a>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                            <table style="max-width: 750px; width: 100%; border-spacing: 0; background-color: #fff; vertical-align: middle; margin: 0 auto; border: 3px solid #2CD071; border-radius: 0px;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" style="padding: 20px; text-align: center;">
+                                            <img src="../assets/images/logo.png" alt="Logo" style="display: inline-block; width: 80px">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
+                                            <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="https://bnpbd.org">www.bnpbd.org</a>
+                                        </th>
+                                        <th style="padding: 10px; color: #fff; text-align: center; background-color: #2CD071; color: #fff;">
+                                            <a style="text-decoration: none; color: inherit; font-weight: 500; font-size: 13px;" href="mailto:mail@bnpbd.org">mail@bnpbd.org</a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" style="padding: 20px;">
+                                            <p style="color: #202020; font-size: 1.05em; font-weight: 500; text-align: justify;">
+                                                <strong style="font-size: 1.15em;">Repair Code: #467</strong> <br>
+                                                LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. PELLENTESQUE VITAE INTERDUM LIGULA. PELLENTESQUE FEUGIAT LIGULA LIGULA, IN INTERDUM DOLOR ALIQUET ET. ALIQUAM VITAE SEM EGET ERAT VIVERRA MALESUADA. ALIQUAM VOLUTPAT VEL EST QUIS EUISMOD. NUNC FAUCIBUS VARIUS EX EGET ALIQUAM.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                <tfoot>
+                                    <tr>
+                                        <td style="padding: 10px; text-align: center; background-color: #EEEFF6;" colspan="2">
+                                            <a style="text-decoration: none; color: inherit; color: #676767; font-size: 15px; font-weight: 500;" href="#">Sent from BNP Web Portal</a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>

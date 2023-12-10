@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RollManagement;
 use App\Http\Controllers\FrequentController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () 
+Route::get('/dashboard', function ()
 {return view('dashboard');
 })
 ->middleware(['auth', 'verified'])->name('dashboard');
@@ -27,9 +28,9 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::get('/media', function () {
-        return view('backend.library.index');
-    });
+    // Route::get('/media', function () {
+    //     return view('backend.library.index');
+    // });
 
     Route::get('/media-add-new', function () {
         return view('backend.library.create');
@@ -83,9 +84,13 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/frequent', [FrequentController::class, 'frequent']);
+    Route::post('/frequent', [FrequentController::class, 'frequent_store'])->name('frequent.store');
     Route::get('/Add_role_permission', [RollManagement::class, 'Add_role_permission']);
     Route::post('/frequent-update', [RollManagement::class, 'role_permission_update'])->name('frequent.update');
     Route::get('frequent/delete/{id}', [RollManagement::class, 'delete']);
+
+    Route::get("/media", [MediaController::class, 'media']);
+
 
 
 

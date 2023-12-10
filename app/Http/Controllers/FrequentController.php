@@ -12,4 +12,8 @@ class FrequentController extends Controller
         $roles = Role::with('permissions')->get();
         return view('backend.frequent.frequent' , compact('roles'));
     }
+    public function frequent_store(Request $request)
+    {
+        dd($request->all());
+    }
 }

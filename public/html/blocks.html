@@ -168,12 +168,12 @@
         <tr class="common">
             <td><input type="checkbox" name="select-individual-data"></td>
             <td>
-                <div class="field"><input type="text" name="query-value" placeholder="query-value" disabled required /></div>
+                <div class="field"><input type="text" name="query-value[]" placeholder="query-value" disabled required /></div>
             </td>
             <td>
                 <div class="fields inline">
-                    <div class="field"><input type="text" name="data-en" placeholder="English" required/></div>
-                    <div class="field"><input type="text" name="data-bn" placeholder="বাংলা"/></div>
+                    <div class="field"><input type="text" name="data-en[]" placeholder="English" required/></div>
+                    <div class="field"><input type="text" name="data-bn[]" placeholder="বাংলা"/></div>
                 </div>
             </td>
             <td>
@@ -183,14 +183,14 @@
         <tr class="address">
             <td><input type="checkbox" name="select-individual-data"></td>
             <td>
-                <div class="field"><input type="text" name="query-value" placeholder="query-value" disabled required /></div>
+                <div class="field"><input type="text" name="query-value[]" placeholder="query-value" disabled required /></div>
             </td>
             <td>
                 <div class="fields inline">
-                    <div class="field"><input type="text" name="data-en" placeholder="English" required/></div>
-                    <div class="field"><input type="text" name="data-bn" placeholder="বাংলা"/></div>
-                    <div class="field"><input type="number" name="mobile" placeholder="Mobile"/></div>
-                    <div class="field"><input type="email" name="email" placeholder="@"/></div>
+                    <div class="field"><input type="text" name="data-en[]" placeholder="English" required/></div>
+                    <div class="field"><input type="text" name="data-bn[]" placeholder="বাংলা"/></div>
+                    <div class="field"><input type="number" name="mobile[]" placeholder="Mobile"/></div>
+                    <div class="field"><input type="email" name="email[]" placeholder="@"/></div>
                 </div>
             </td>
             <td>
@@ -218,7 +218,7 @@
                     <span class="user-access-item"><input type="checkbox" name="notices[]"/> Notices</span>
                     <span class="user-access-item"><input type="checkbox" name="events[]"/> Events</span>
                     <span class="user-access-item"><input type="checkbox" name="members[]"/> Members</span>
-                    <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Members</span>
+                    <span class="user-access-item"><input type="checkbox" name="notification[]"/> Notification</span>
                     <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Committees</span>
                     <span class="user-access-item"><input type="checkbox" name="appearances[]"/> Appearances</span>
                     <span class="user-access-item"><input type="checkbox" name="commitees[]"/> Frequent Data</span>

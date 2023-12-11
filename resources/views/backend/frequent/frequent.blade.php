@@ -120,13 +120,14 @@
                         </div>
                     </div>
                 </div>
+{{-- address section start --}}
                 <div class="tab-data-container" data-tab="addresses">
                     <div class="tab-data-wrap" aria-name="data-wrapper">
                         <div class="tab-container-heading">
                             <h2></h2>
                             <div class="buttons inline">
-                                <button class="btn" name="add-dbdata"><i class="fas fa-plus"></i> Add Data</button>
-                                <button class="btn primary filled" id="update-addresses"> <i class="fa-solid fa-rotate right"></i> Update</button>
+                                <button class="btn" name="add-dbdata"><i class="fas fa-plus"></i> Add Data </button>
+                                <button onclick="handleSubmitAddress()" class="btn primary filled" id="update-addresses"> <i class="fa-solid fa-rotate right"></i> Update</button>
                             </div>
                             <div class="fields inline">
                                 <div class="field"><select one id="division"><option value="">বিভাগ</option></select></div>
@@ -136,6 +137,9 @@
                             </div>
                         </div>
                         <div class="data-content">
+                            <form action="{{ route('frequent.store') }}" method="POST" id="address-form">
+                                @csrf
+
                             <table class="data-table last-child-action" id="table" aria-name="qdata">
                                 <thead>
                                     <tr>
@@ -149,14 +153,14 @@
                                     <tr>
                                         <td><input type="checkbox" name="select-individual-data"></td>
                                         <td>
-                                            <div class="field"><input type="text" name="query-value" placeholder="query-value" value="dhaka" disabled required /></div>
+                                            <div class="field"><input type="text" name="query-value[]" placeholder="query-value" value="dhaka" disabled required /></div>
                                         </td>
                                         <td>
                                             <div class="fields inline">
-                                                <div class="field"><input type="text" name="data-en" placeholder="English" value="Dhaka" required></div>
-                                                <div class="field"><input type="text" name="data-bn" placeholder="বাংলা" value="ঢাকা"></div>
-                                                <div class="field"><input type="number" name="mobile" placeholder="Mobile"/></div>
-                                                <div class="field"><input type="email" name="email" placeholder="@"/></div>
+                                                <div class="field"><input type="text" name="data-en[]" placeholder="English" value="Dhaka" required></div>
+                                                <div class="field"><input type="text" name="data-bn[]" placeholder="বাংলা" value="ঢাকা"></div>
+                                                <div class="field"><input type="number" name="mobile[]" placeholder="Mobile"/></div>
+                                                <div class="field"><input type="email" name="email[]" placeholder="@"/></div>
                                             </div>
                                         </td>
                                         <td>
@@ -165,17 +169,19 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </form>
                             <button class="btn info fill-hover" name="load-more-data">Load More</button>
                         </div>
                     </div>
                 </div>
+                {{-- address section end --}}
                 <div class="tab-data-container" data-tab="committee-types">
                     <div class="tab-data-wrap" aria-name="data-wrapper">
                         <div class="tab-container-heading">
                             <h2></h2>
                             <div class="buttons inline">
-                                <button class="btn" name="add-dbdata"><i class="fas fa-plus"></i> Add Data</button>
-                                <button class="btn primary filled" id="update-committee-types"> <i class="fa-solid fa-rotate right"></i> Update</button>
+                                <button  class="btn" name="add-dbdata"><i class="fas fa-plus"></i> Add Data</button>
+                                <button  class="btn primary filled" id="update-committee-types"> <i class="fa-solid fa-rotate right"></i> Update</button>
                             </div>
                         </div>
                         <div class="data-content">
@@ -260,6 +266,14 @@
             onlyBody: true
         });
     });
+</script>
+
+<script>
+    let handleSubmitAddress = () =>{
+        console.log('asi');
+        let addressForm = document.getElementById('address-form');
+        addressForm.submit();
+    }
 </script>
 
 @endsection

@@ -14,6 +14,6 @@ class FrequentController extends Controller
     }
     public function frequent_store(Request $request)
     {
-        dd($request->all());
+        
     }
 }

@@ -336,9 +336,6 @@
         addressForm.submit();
     }
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
 <script>
 function selectMedia() {
     var user_access_tr = document.querySelectorAll('.user-access_tr');
